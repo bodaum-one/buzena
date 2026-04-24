@@ -1,0 +1,28 @@
+{
+  "placeholderImages": [
+    {
+      "id": "user-avatar-1",
+      "description": "Avatar for user Carlos Silva",
+      "imageUrl": "https://picsum.photos/seed/101/100/100",
+      "imageHint": "man portrait"
+    },
+    {
+      "id": "user-avatar-2",
+      "description": "Avatar for user Ana Pereira",
+      "imageUrl": "https://picsum.photos/seed/102/100/100",
+      "imageHint": "woman portrait"
+    },
+    {
+      "id": "user-avatar-3",
+      "description": "Avatar for user Felipe Souza",
+      "imageUrl": "https://picsum.photos/seed/103/100/100",
+      "imageHint": "person smiling"
+    },
+    {
+      "id": "map-placeholder",
+      "description": "Placeholder image of a map",
+      "imageUrl": "https://picsum.photos/seed/map1/800/600",
+      "imageHint": "city map"
+    }
+  ]
+}

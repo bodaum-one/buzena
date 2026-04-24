@@ -1,8 +1,5 @@
 {
-  "outputDirectory": "dist",
-  "buildCommand": "npx expo export",
-  "routes": [
-    { "handle": "filesystem" },
-    { "src": "/.*", "dest": "/index.html" }
-  ]
+  "buildCommand": "npm run build",
+  "devCommand": "npm run dev",
+  "installCommand": "npm install"
 }
