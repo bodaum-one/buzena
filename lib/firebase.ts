@@ -2,7 +2,7 @@ import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
 import { getStorage } from 'firebase/storage';
-import { getMessaging } from 'firebase/messaging';
+import { getMessaging, getToken as getFcmToken } from 'firebase/messaging';
 
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -14,16 +14,25 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
+
 export const auth = getAuth(app);
 export const db = getFirestore(app);
 export const storage = getStorage(app);
 
-export const getToken = async () => {
+// 🔔 Função correta para pegar token
+export const getFCMToken = async () => {
   try {
+    if (typeof window === 'undefined') return null;
+
+    const permission = await Notification.requestPermission();
+    if (permission !== 'granted') return null;
+
     const messaging = getMessaging(app);
-    const token = await messaging.getToken({
+
+    const token = await getFcmToken(messaging, {
       vapidKey: process.env.NEXT_PUBLIC_FIREBASE_VAPID_KEY,
     });
+
     return token;
   } catch (error) {
     console.log('Erro ao obter token de notificação:', error);
